@@ -1,14 +1,10 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Autofac;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 
 namespace ERP.Core
 {
@@ -25,6 +21,8 @@ namespace ERP.Core
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddControllersWithViews()
+                    .AddControllersAsServices();//这里要写
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,6 +41,20 @@ namespace ERP.Core
             {
                 endpoints.MapControllers();
             });
+        }
+
+        public void ConfigureContainer(ContainerBuilder builder)
+        {
+            //添加任何Autofac模块或注册。
+            //这是在ConfigureServices之后调用的，所以
+            //在此处注册将覆盖在ConfigureServices中注册的内容。
+            //在构建主机时必须调用“UseServiceProviderFactory（new AutofacServiceProviderFactory（））”`否则将不会调用此。
+
+            builder.RegisterModule(new AutofacModuleRegister(Microsoft.DotNet.PlatformAbstractions.ApplicationEnvironment.ApplicationBasePath, new List<string>()
+            { //批量构造函数注入
+                "ERP.Core.Base.Repository.dll"
+            }));
+
         }
     }
 }
