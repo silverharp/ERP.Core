@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ERP.Core</name>
+    </assembly>
+    <members>
+        <member name="T:ERP.Core.Controllers.WeatherForecastController">
+            <summary>
+            模块名：天气管理
+            创建人：zhuwm
+            日  期：2020年2月3日
+            </summary>
+        </member>
+        <member name="M:ERP.Core.Controllers.WeatherForecastController.Get">
+            <summary>
+            世界你好！
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

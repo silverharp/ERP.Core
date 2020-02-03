@@ -4,11 +4,19 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>..\ERP.Core\ERP.Core.xml</DocumentationFile>
+    <NoWarn>1701;1702;9999</NoWarn>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="5.0.1" />
     <PackageReference Include="Autofac.Extras.DynamicProxy" Version="4.5.0" />
     <PackageReference Include="log4net" Version="2.0.8" />
     <PackageReference Include="Microsoft.DotNet.PlatformAbstractions" Version="3.1.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="5.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="5.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="5.0.0" />
   </ItemGroup>
 
   <ItemGroup>
