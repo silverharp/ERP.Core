@@ -36,9 +36,9 @@ namespace ERP.Core.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public string Get()
+        public string Get(string name)
         {
-            return "Hello World!";
+            return "Hello " + name + "!";
         }
     }
 }

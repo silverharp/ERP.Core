@@ -11,7 +11,7 @@
             日  期：2020年2月3日
             </summary>
         </member>
-        <member name="M:ERP.Core.Controllers.WeatherForecastController.Get">
+        <member name="M:ERP.Core.Controllers.WeatherForecastController.Get(System.String)">
             <summary>
             世界你好！
             </summary>
