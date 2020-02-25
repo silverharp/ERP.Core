@@ -9,6 +9,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Swagger;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace ERP.Core
 {
@@ -48,6 +50,25 @@ namespace ERP.Core
                 var xmlPath = Path.Combine(basePath, "ERP.Core.xml");//这个就是刚刚配置的xml文件名
                 c.IncludeXmlComments(xmlPath, true);//默认的第二个参数是false，这个是controller的注释，记得修改
             });
+
+            //全局配置Json序列化处理
+            services.AddControllers(c =>
+            {
+                //// 全局异常过滤
+                //o.Filters.Add(typeof(GlobalExceptionsFilter));
+                //// 全局路由权限公约
+                ////o.Conventions.Insert(0, new GlobalRouteAuthorizeConvention());
+                //// 全局路由前缀，统一修改路由
+                //o.Conventions.Insert(0, new GlobalRoutePrefixFilter(new RouteAttribute(RoutePrefix.Name)));
+            }).AddNewtonsoftJson(options =>
+            {
+                //忽略循环引用
+                options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+                //不使用驼峰样式的key
+                options.SerializerSettings.ContractResolver = new DefaultContractResolver();
+                //设置时间格式
+                //options.SerializerSettings.DateFormatString = "yyyy-MM-dd";
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -70,7 +91,11 @@ namespace ERP.Core
 
             app.UseRouting();
 
+            //开启认证中间件
+            app.UseAuthentication();
+
             app.UseAuthorization();
+
 
             app.UseEndpoints(endpoints =>
             {
