@@ -1,0 +1,137 @@
+﻿#region 开发单位：xnlzg 版权所有Copyright (C) 2011
+/***-------------------------------------------------------------------------------------
+		命名空间：BlueTask.Utility.Helper
+		文 件 名：LoggerHelper
+		创建时间：2017/9/12 14:01:22
+		创 建 人：罗泽光 
+		修改时间：
+		修 改 人：
+		说    明：日志管理类			 
+-------------------------------------------------------------------------------------***/
+#endregion
+
+using System;
+using System.IO;
+using Common.Config;
+
+namespace Common.Log
+{
+    /// <summary>
+    /// 日志操作类
+    /// </summary>
+    public class LogHelper
+    {
+        private static readonly Object ThisLock = new Object();
+        /// <summary>
+        /// 写日志文件数据库日志文件
+        /// </summary>
+        /// <param name="ex">消息</param>  
+        public static void WriteError(Exception ex)
+        {
+
+            AddLog(ex.Message + "\r\n" + ex.InnerException + "\r\n" + ex.StackTrace + "\r\n" + ex.Source, "Error");
+        }
+        /// <summary>
+        /// 写日志文件数据库日志文件
+        /// </summary>
+        /// <param name="message">消息</param>  
+        public static void WriteError(string message)
+        {
+
+            AddLog(message, "Error");
+        }
+        /// <summary>
+        /// 写日志文件数据库日志文件
+        /// </summary>
+        /// <param name="ex">消息</param> 
+        /// <param name="direName">日志存储目录名称</param>
+        public static void WriteError(Exception ex,string direName)
+        {
+            AddLog(ex.Message + "\r\n" + ex.InnerException + "\r\n" + ex.StackTrace + "\r\n" + ex.Source, direName);
+        }
+        /// <summary>
+        /// 写日志文件数据库日志文件
+        /// </summary>
+        /// <param name="message">消息</param>  
+        public static void WriteLog(string message)
+        {
+
+            AddLog(message, "Log");
+        }
+        /// <summary>
+        /// 写日志文件数据库日志文件
+        /// </summary>
+        /// <param name="message">消息</param> 
+        /// <param name="direName">日志存储目录名称</param>
+        public static void WriteLog(string message, string direName)
+        {
+
+            AddLog(message, direName);
+        }
+
+        /// <summary>
+        /// 写日志文件数据库日志文件
+        /// </summary>
+        /// <param name="message">消息</param>
+        /// <param name="direName">日志存储目录名称</param>
+        private static void AddLog(string message, string direName)
+        {
+            var fileLog = SysConfig.Params.FileLog;
+            if (fileLog != null && (bool) fileLog == false)
+            {
+                return;
+            }
+            try
+            {
+                var applicationName = direName;
+                //从宿主配置文件中获取日志文件全路径
+                //所有的接口日志文件放在一个目录下面，跟web站点的目录分开
+                //日志文件一天放一个，按日期分开
+                
+                if (string.IsNullOrEmpty(applicationName))
+                {
+                    applicationName = "Log";
+                }
+                string logFullPath = AppDomain.CurrentDomain.BaseDirectory + "logs\\" + applicationName;
+
+                if (!Directory.Exists(logFullPath))
+                {
+                    Directory.CreateDirectory(logFullPath);
+                }
+                //只保留30天的日志
+                var deletePath = $@"{logFullPath}\{DateTime.Now.AddDays(-30):yyyyMMdd}.txt";
+
+                if (File.Exists(deletePath))
+                {
+                    File.Delete(deletePath);
+                }
+
+                logFullPath = $@"{logFullPath}\{DateTime.Now:yyyyMMdd}.txt";
+                if (!File.Exists(logFullPath))
+                {
+                    using (var fs = new FileStream(logFullPath, FileMode.Create, FileAccess.Write))
+                    {
+                        StreamWriter sw = new StreamWriter(fs);
+                        sw.Close();
+                        fs.Close();
+                    }
+                }
+                lock (ThisLock)
+                {
+                    using (StreamWriter writer = new StreamWriter(logFullPath, true))
+                    {
+                        writer.WriteLine(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+                        writer.WriteLine(message);
+                        writer.WriteLine(Environment.NewLine);  
+                         
+                    }
+                }
+            }
+            catch
+            {
+                // ignored
+            }
+        }
+
+    }
+}
