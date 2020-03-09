@@ -5,7 +5,7 @@ using System.Security.Cryptography;
 using System.Text; 
 
 
-namespace ERP.Core.Framework.Common.Helpers
+namespace ERP.Framework.Common.Helpers
 {
     /// <summary>
     /// 通用工具操作类[加密，解密],对字符串的操作

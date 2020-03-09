@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using ERP.Core.Base.Model;
+using ERP.Base.Model;
 
-namespace ERP.Core.Base.IRepository
+namespace ERP.Base.IRepository
 {
     public interface ISysUserRepository
     {

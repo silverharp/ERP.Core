@@ -1,4 +1,4 @@
-﻿namespace ERP.Core.Framework.Common.Config
+﻿namespace ERP.Framework.Common.Config
 {
     /// <summary>
     /// 通用常量数据

@@ -1,9 +1,9 @@
 ﻿using System;
-using ERP.Core.Framework.Common.Helpers;
+using ERP.Framework.Common.Helpers;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace ERP.Core.Framework.Common.Config
+namespace ERP.Framework.Common.Config
 {
     /// <summary>
     /// 系统配置

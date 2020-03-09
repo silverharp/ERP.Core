@@ -6,7 +6,7 @@ using System.Security.Claims;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
 
-namespace ERP.Core.Utils
+namespace ERP.Utils
 {
     public class JwtHelper
     {

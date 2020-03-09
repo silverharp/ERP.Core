@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Reflection; 
 
-namespace ERP.Core.Framework.Common.Helpers
+namespace ERP.Framework.Common.Helpers
 {
     /// <summary>
     /// 枚举操作类

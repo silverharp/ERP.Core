@@ -11,9 +11,9 @@ using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Swagger;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
-using ERP.Core.Utils;
+using ERP.Utils;
 using System.Reflection;
-using ERP.Core.Framework.Common.MvcFilter;
+using ERP.Framework.Common.MvcFilter;
 using Autofac.Extras.DynamicProxy;
 
 namespace ERP.Core
@@ -49,7 +49,7 @@ namespace ERP.Core
                 });
                 c.OrderActionsBy(o => o.RelativePath);
 
-                var xmlPath = Path.Combine(basePath, "ERP.Core.xml");//这个就是刚刚配置的xml文件名
+                var xmlPath = Path.Combine(basePath, "ERP.xml");//这个就是刚刚配置的xml文件名
                 c.IncludeXmlComments(xmlPath, true);//默认的第二个参数是false，这个是controller的注释，记得修改
             });
 
@@ -114,7 +114,7 @@ namespace ERP.Core
             //在构建主机时必须调用“UseServiceProviderFactory（new AutofacServiceProviderFactory（））”`否则将不会调用此。
             //先注入sqlsugar的AOP
             builder.RegisterType<SugarTranAop>().SingleInstance();
-            var assemblysBaseRepository = Assembly.Load("ERP.Core.Base.Repository");
+            var assemblysBaseRepository = Assembly.Load("ERP.Base.Repository");
             builder.RegisterAssemblyTypes(assemblysBaseRepository)
                       .AsImplementedInterfaces();
                       //.EnableInterfaceInterceptors()//引用Autofac.Extras.DynamicProxy;

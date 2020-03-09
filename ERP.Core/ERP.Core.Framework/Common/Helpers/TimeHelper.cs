@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ERP.Core.Framework.Common.Helpers
+namespace ERP.Framework.Common.Helpers
 {
     /// <summary>
     /// 时间戳

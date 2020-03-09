@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ERP.Core.Framework.Common.Extensions
+namespace ERP.Framework.Common.Extensions
 {
     /// <summary>
     /// 异常信息扩展

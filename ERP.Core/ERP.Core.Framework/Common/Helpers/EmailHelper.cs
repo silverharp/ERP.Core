@@ -4,7 +4,7 @@ using System.Net.Mail;
 using System.Text;
 
 
-namespace ERP.Core.Framework.Common.Helpers
+namespace ERP.Framework.Common.Helpers
 {
     /// <summary>
     /// Email操作类

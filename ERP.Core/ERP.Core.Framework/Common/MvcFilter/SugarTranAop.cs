@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 using Castle.DynamicProxy;
-using ERP.Core.Framework.Data;
+using ERP.Framework.Data;
 
-namespace ERP.Core.Framework.Common.MvcFilter
+namespace ERP.Framework.Common.MvcFilter
 {
     public class SugarTranAop : IInterceptor
     {

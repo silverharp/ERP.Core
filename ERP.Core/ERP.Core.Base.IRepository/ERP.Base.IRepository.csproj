@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ERP.Core.Base.Model\ERP.Core.Base.Model.csproj" />
+    <ProjectReference Include="..\ERP.Core.Base.Model\ERP.Base.Model.csproj" />
   </ItemGroup>
 
 </Project>

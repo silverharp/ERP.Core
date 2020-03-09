@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using ERP.Core.Framework.Data;
+using ERP.Framework.Data;
 using Microsoft.AspNetCore.Mvc.Filters;
 
-namespace ERP.Core.Framework.Common.MvcFilter
+namespace ERP.Framework.Common.MvcFilter
 {
     /// <summary>
     /// sqlsugar的aop特性

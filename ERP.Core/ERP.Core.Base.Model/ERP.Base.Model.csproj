@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ERP.Core.Framework\ERP.Core.Framework.csproj" />
+    <ProjectReference Include="..\ERP.Core.Framework\ERP.Framework.csproj" />
   </ItemGroup>
 
 </Project>

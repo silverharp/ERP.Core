@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Threading.Tasks;
-using Autofac.Extras.DynamicProxy;
-using ERP.Core.Base.IRepository;
-using ERP.Core.Base.Model;
-using ERP.Core.Framework.Common.MvcFilter;
-using ERP.Core.Framework.Data;
+﻿using System.Collections.Generic;
+using ERP.Base.IRepository;
+using ERP.Base.Model;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 
-namespace ERP.Core.Controllers
+namespace ERP.Controllers
 {
     /// <summary>
     /// 模块名：天气管理

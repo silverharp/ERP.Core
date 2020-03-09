@@ -1,6 +1,6 @@
-﻿using ERP.Core.Framework.Common.Enums;
+﻿using ERP.Framework.Common.Enums;
 
-namespace ERP.Core.Framework.Common.Models
+namespace ERP.Framework.Common.Models
 {
     /// <summary>
     /// 查询

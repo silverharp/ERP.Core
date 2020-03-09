@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions; 
 
-namespace ERP.Core.Framework.Common.Helpers
+namespace ERP.Framework.Common.Helpers
 {
     /// <summary>
     /// 正则操作类

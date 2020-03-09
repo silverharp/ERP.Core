@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
-using ERP.Core.Framework.Common.Log;
+using ERP.Framework.Common.Log;
 using Newtonsoft.Json;
 
-namespace ERP.Core.Framework.Common.Helpers
+namespace ERP.Framework.Common.Helpers
 {
     /// <summary>
     /// json的操作类

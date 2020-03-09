@@ -1,4 +1,4 @@
-﻿namespace ERP.Core.Framework.Common.Enums
+﻿namespace ERP.Framework.Common.Enums
 {
     /// <summary>
     /// 排序枚举

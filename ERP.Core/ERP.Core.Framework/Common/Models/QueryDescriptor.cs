@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ERP.Core.Framework.Common.Models
+namespace ERP.Framework.Common.Models
 {
     /// <summary>
     /// 查询集合

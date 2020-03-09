@@ -1,8 +1,8 @@
 ﻿using System;
-using ERP.Core.Framework.Common.Models;
+using ERP.Framework.Common.Models;
 using SqlSugar;
 
-namespace ERP.Core.Base.Model
+namespace ERP.Base.Model
 {
     [SugarTable("SYS_USER")]
     public class SysUser : BaseEntity

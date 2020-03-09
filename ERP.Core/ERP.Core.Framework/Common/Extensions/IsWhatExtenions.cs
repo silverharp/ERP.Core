@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace ERP.Core.Framework.Common.Extensions
+namespace ERP.Framework.Common.Extensions
 {
     /// <summary>
     /// 逻辑判段扩展

@@ -4,12 +4,12 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Linq.Expressions;
-using ERP.Core.Framework.Common.Enums;
-using ERP.Core.Framework.Common.Helpers;
-using ERP.Core.Framework.Common.Models;
+using ERP.Framework.Common.Enums;
+using ERP.Framework.Common.Helpers;
+using ERP.Framework.Common.Models;
 using SqlSugar; 
 
-namespace ERP.Core.Framework.Data
+namespace ERP.Framework.Data
 {
     /// <summary>
     /// SqlSugar操作类型

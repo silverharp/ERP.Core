@@ -1,9 +1,9 @@
 ﻿using System;
-using ERP.Core.Framework.Common.Config;
-using ERP.Core.Framework.Common.Helpers;
+using ERP.Framework.Common.Config;
+using ERP.Framework.Common.Helpers;
 using StackExchange.Redis;
 
-namespace ERP.Core.Framework.Common.Cache
+namespace ERP.Framework.Common.Cache
 {
     /// <summary>
     /// Redis缓存

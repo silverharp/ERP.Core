@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using ERP.Core.Framework.Common.Config;
-using ERP.Core.Framework.Common.Helpers;
-using ERP.Core.Framework.Common.Log;
+using ERP.Framework.Common.Config;
+using ERP.Framework.Common.Helpers;
+using ERP.Framework.Common.Log;
 using SqlSugar;
 
-namespace ERP.Core.Framework.Data
+namespace ERP.Framework.Data
 {
     public class BaseDbContext
     {

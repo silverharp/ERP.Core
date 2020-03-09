@@ -1,7 +1,7 @@
 ﻿using System; 
 using System.Reflection; 
 
-namespace ERP.Core.Framework.Common.Helpers
+namespace ERP.Framework.Common.Helpers
 {
     /// <summary>
     /// 实体操作类

@@ -18,10 +18,10 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq.Expressions;
-using ERP.Core.Framework.Common.Models;
+using ERP.Framework.Common.Models;
 using SqlSugar;
 
-namespace ERP.Core.Framework.Data
+namespace ERP.Framework.Data
 {
     /// <summary>
     /// SqlSugar操作接口类

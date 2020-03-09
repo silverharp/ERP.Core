@@ -5,7 +5,7 @@ using System.Net;
 using System.Text;
 using System.Web;
 
-namespace ERP.Core.Framework.Common.Helpers
+namespace ERP.Framework.Common.Helpers
 {
     /// <summary>
     /// Http操作类

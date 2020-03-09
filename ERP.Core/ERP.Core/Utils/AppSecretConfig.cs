@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace ERP.Core.Utils
+namespace ERP.Utils
 {
     public class AppSecretConfig
     {

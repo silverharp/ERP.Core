@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Text;
 using SqlSugar;
 
-namespace ERP.Core.Framework.Common.Models
+namespace ERP.Framework.Common.Models
 {
     [Serializable]
     public abstract class BaseEntity

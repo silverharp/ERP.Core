@@ -7,9 +7,9 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using Aspose.Cells;
-using ERP.Core.Framework.Common.Models;
+using ERP.Framework.Common.Models;
 
-namespace ERP.Core.Framework.Common.Helpers
+namespace ERP.Framework.Common.Helpers
 {
     /// <summary>
     /// Excel操作类

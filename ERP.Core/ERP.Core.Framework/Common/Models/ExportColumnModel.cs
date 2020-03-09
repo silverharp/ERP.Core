@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Reflection;
 
-namespace ERP.Core.Framework.Common.Models
+namespace ERP.Framework.Common.Models
 {
     /// <summary>
     /// 导出列数据集合

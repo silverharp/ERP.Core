@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel; 
 
-namespace ERP.Core.Framework.Common.Enums
+namespace ERP.Framework.Common.Enums
 {
     /// <summary>
     /// 系统日志操作类型

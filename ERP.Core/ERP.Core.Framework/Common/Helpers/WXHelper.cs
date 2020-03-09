@@ -6,7 +6,7 @@ using System.Text;
 using Newtonsoft.Json;
 
 
-namespace ERP.Core.Framework.Common.Helpers
+namespace ERP.Framework.Common.Helpers
 {
     /// <summary>
     /// 微信企业号操作类

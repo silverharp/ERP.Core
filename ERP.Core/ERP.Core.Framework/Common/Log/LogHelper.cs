@@ -1,8 +1,8 @@
 ﻿using System;
 using System.IO;
-using ERP.Core.Framework.Common.Config;
+using ERP.Framework.Common.Config;
 
-namespace ERP.Core.Framework.Common.Log
+namespace ERP.Framework.Common.Log
 {
     /// <summary>
     /// 日志操作类

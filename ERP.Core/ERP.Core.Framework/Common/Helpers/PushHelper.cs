@@ -1,8 +1,8 @@
 ﻿using System;
-using ERP.Core.Framework.Common.Config;
-using ERP.Core.Framework.Common.Log;
+using ERP.Framework.Common.Config;
+using ERP.Framework.Common.Log;
 
-namespace ERP.Core.Framework.Common.Helpers
+namespace ERP.Framework.Common.Helpers
 {
     /// <summary>
     /// 消息发送类

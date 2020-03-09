@@ -1,9 +1,9 @@
-﻿using ERP.Core.Base.Model;
-using ERP.Core.Framework.Data;
+﻿using ERP.Base.Model;
+using ERP.Framework.Data;
 using System.Collections.Generic;
-using ERP.Core.Base.IRepository;
+using ERP.Base.IRepository;
 
-namespace ERP.Core.Base.Repository
+namespace ERP.Base.Repository
 {
     public class SysUserRepository : SugarRepository, ISysUserRepository
     {
