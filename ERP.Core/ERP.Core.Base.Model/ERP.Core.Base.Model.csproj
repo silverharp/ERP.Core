@@ -5,8 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ERP.Core.Base.IRepository\ERP.Core.Base.IRepository.csproj" />
-    <ProjectReference Include="..\ERP.Core.Base.Model\ERP.Core.Base.Model.csproj" />
     <ProjectReference Include="..\ERP.Core.Framework\ERP.Core.Framework.csproj" />
   </ItemGroup>
 

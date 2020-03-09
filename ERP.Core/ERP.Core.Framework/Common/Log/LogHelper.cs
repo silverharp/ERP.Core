@@ -1,20 +1,8 @@
-﻿#region 开发单位：xnlzg 版权所有Copyright (C) 2011
-/***-------------------------------------------------------------------------------------
-		命名空间：BlueTask.Utility.Helper
-		文 件 名：LoggerHelper
-		创建时间：2017/9/12 14:01:22
-		创 建 人：罗泽光 
-		修改时间：
-		修 改 人：
-		说    明：日志管理类			 
--------------------------------------------------------------------------------------***/
-#endregion
-
-using System;
+﻿using System;
 using System.IO;
-using Common.Config;
+using ERP.Core.Framework.Common.Config;
 
-namespace Common.Log
+namespace ERP.Core.Framework.Common.Log
 {
     /// <summary>
     /// 日志操作类

@@ -11,6 +11,10 @@ using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Swagger;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using ERP.Core.Utils;
+using System.Reflection;
+using ERP.Core.Framework.Common.MvcFilter;
+using Autofac.Extras.DynamicProxy;
 
 namespace ERP.Core
 {
@@ -28,10 +32,8 @@ namespace ERP.Core
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
             services.AddControllersWithViews()
                     .AddControllersAsServices();//这里要写
-
 
             var basePath = Microsoft.DotNet.PlatformAbstractions.ApplicationEnvironment.ApplicationBasePath;
             services.AddSwaggerGen(c =>
@@ -105,16 +107,19 @@ namespace ERP.Core
 
         public void ConfigureContainer(ContainerBuilder builder)
         {
+            #region Autofac注入
             //添加任何Autofac模块或注册。
             //这是在ConfigureServices之后调用的，所以
             //在此处注册将覆盖在ConfigureServices中注册的内容。
             //在构建主机时必须调用“UseServiceProviderFactory（new AutofacServiceProviderFactory（））”`否则将不会调用此。
-
-            builder.RegisterModule(new AutofacModuleRegister(Microsoft.DotNet.PlatformAbstractions.ApplicationEnvironment.ApplicationBasePath, new List<string>()
-            { //批量构造函数注入
-                "ERP.Core.Base.Repository.dll"
-            }));
-
+            //先注入sqlsugar的AOP
+            builder.RegisterType<SugarTranAop>().SingleInstance();
+            var assemblysBaseRepository = Assembly.Load("ERP.Core.Base.Repository");
+            builder.RegisterAssemblyTypes(assemblysBaseRepository)
+                      .AsImplementedInterfaces();
+                      //.EnableInterfaceInterceptors()//引用Autofac.Extras.DynamicProxy;
+                      //.InterceptedBy(typeof(SugarTranAop));//可以直接替换拦截器
+            #endregion
         }
     }
 }

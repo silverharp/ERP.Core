@@ -3,7 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
-using ERP.Core.Base.Repository;
+using Autofac.Extras.DynamicProxy;
+using ERP.Core.Base.IRepository;
+using ERP.Core.Base.Model;
+using ERP.Core.Framework.Common.MvcFilter;
+using ERP.Core.Framework.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -24,11 +28,11 @@ namespace ERP.Core.Controllers
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
 
-        private readonly ILogger<WeatherForecastController> _logger;
+        ISysUserRepository sysUserRepository;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ISysUserRepository SysUserRepository)
         {
-            _logger = logger;
+            this.sysUserRepository = SysUserRepository;
         }
 
         /// <summary>
@@ -38,7 +42,25 @@ namespace ERP.Core.Controllers
         [HttpGet]
         public string Get()
         {
-            return "Hello World!";
+            return sysUserRepository.hello();
+        }
+
+        [HttpGet]
+        [Route("test")]
+        public virtual void test()
+        {
+            List<SysUser> list = new List<SysUser>();
+            for (int i = 0; i < 1000000; i++)
+            {
+                SysUser user = new SysUser
+                {
+                    LoginName = "user" + (i + 1),
+                    Pwd = "000000",
+                    IsStop = false
+                };
+                list.Add(user);
+            }
+            sysUserRepository.Add1(list);
         }
     }
 }

@@ -20,12 +20,12 @@ namespace ERP.Core
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
-              .UseServiceProviderFactory(new AutofacServiceProviderFactory())
+                .UseServiceProviderFactory(new AutofacServiceProviderFactory())//.net core3.0需要将默认ServiceProviderFactory指定为AutofacServiceProviderFactory
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder
                       .UseContentRoot(Directory.GetCurrentDirectory())
-                      .UseUrls("http://*:2020")
+                      .UseUrls("http://*:915")
                       .UseStartup<Startup>();
                 });
     }
