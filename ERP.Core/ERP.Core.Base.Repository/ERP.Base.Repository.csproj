@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ERP.Core.Base.IRepository\ERP.Base.IRepository.csproj" />
+    <ProjectReference Include="..\ERP.Core.Base.Model\ERP.Base.Model.csproj" />
+    <ProjectReference Include="..\ERP.Core.Framework\ERP.Framework.csproj" />
+  </ItemGroup>
+
+</Project>
