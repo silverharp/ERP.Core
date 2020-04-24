@@ -25,14 +25,6 @@ namespace ERP.Utils
             //var claims = new Claim[] //old
             var claims = new List<Claim>
                 {
-                 /*
-                 * 特别重要：
-                   1、这里将用户的部分信息，比如 uid 存到了Claim 中，如果你想知道如何在其他地方将这个 uid从 Token 中取出来，请看下边的SerializeJwt() 方法，或者在整个解决方案，搜索这个方法，看哪里使用了！
-                   2、你也可以研究下 HttpContext.User.Claims ，具体的你可以看看 Policys/PermissionHandler.cs 类中是如何使用的。
-                 */
-
-                    
-
                 new Claim(JwtRegisteredClaimNames.Jti, tokenModel.Uid.ToString()),
                 new Claim(JwtRegisteredClaimNames.Iat, $"{new DateTimeOffset(DateTime.Now).ToUnixTimeSeconds()}"),
                 new Claim(JwtRegisteredClaimNames.Nbf,$"{new DateTimeOffset(DateTime.Now).ToUnixTimeSeconds()}") ,
@@ -46,7 +38,6 @@ namespace ERP.Utils
                };
 
             // 可以将一个用户的多个角色全部赋予；
-            // 作者：DX 提供技术支持；
             claims.AddRange(tokenModel.Role.Split(',').Select(s => new Claim(ClaimTypes.Role, s)));
 
 
